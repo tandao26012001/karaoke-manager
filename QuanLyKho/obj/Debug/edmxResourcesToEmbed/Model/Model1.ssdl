@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_KARAOKEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTHD_NHAPHANG">
+    <Key>
+      <PropertyRef Name="ID_MATHANG" />
+      <PropertyRef Name="ID_HDNHAPHANG" />
+    </Key>
+    <Property Name="ID_MATHANG" Type="int" Nullable="false" />
+    <Property Name="ID_HDNHAPHANG" Type="int" Nullable="false" />
+    <Property Name="SOLUONG" Type="int" />
+    <Property Name="DONGIA" Type="int" />
+    <Property Name="HANSUDUNG" Type="date" />
+    <Property Name="NGAYNHAP" Type="date" />
+  </EntityType>
+  <EntityType Name="CTHD_PHONG">
+    <Key>
+      <PropertyRef Name="ID_PHONG" />
+      <PropertyRef Name="ID_MATHANG" />
+    </Key>
+    <Property Name="ID_PHONG" Type="int" Nullable="false" />
+    <Property Name="ID_MATHANG" Type="int" Nullable="false" />
+    <Property Name="ID_HDPHONG" Type="int" />
+    <Property Name="SOLUONG" Type="int" />
+    <Property Name="DONGIA" Type="int" />
+  </EntityType>
+  <EntityType Name="HD_NHAPHANG">
+    <Key>
+      <PropertyRef Name="ID_HDNHAPHANG" />
+    </Key>
+    <Property Name="ID_HDNHAPHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NHANVIEN" Type="int" />
+  </EntityType>
+  <EntityType Name="HD_PHONG">
+    <Key>
+      <PropertyRef Name="ID_HDPHONG" />
+    </Key>
+    <Property Name="ID_HDPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NHANVIEN" Type="int" />
+    <Property Name="ID_PHONG" Type="int" />
+    <Property Name="ID_KHACHHANG" Type="int" />
+    <Property Name="GIOVAO" Type="int" />
+    <Property Name="GIORA" Type="int" />
+    <Property Name="NGAYTAO" Type="date" />
+  </EntityType>
+  <EntityType Name="KHACH_HANG">
+    <Key>
+      <PropertyRef Name="ID_KHACHHANG" />
+    </Key>
+    <Property Name="ID_KHACHHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_KHACHHANG" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LOAI_PHONG">
+    <Key>
+      <PropertyRef Name="ID_LOAIPHONG" />
+    </Key>
+    <Property Name="ID_LOAIPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_LOAIPHONG" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MAT_HANG">
+    <Key>
+      <PropertyRef Name="ID_MATHANG" />
+    </Key>
+    <Property Name="ID_MATHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NHACUNGCAP" Type="int" />
+    <Property Name="TEN_MATHANG" Type="nvarchar" MaxLength="100" />
+    <Property Name="DONVITINH" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NHACUNGCAP">
+    <Key>
+      <PropertyRef Name="ID_NHACUNGCAP" />
+    </Key>
+    <Property Name="ID_NHACUNGCAP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_NHACUNGCAP" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIENTHOAI" Type="char" MaxLength="15" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="200" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="ID_NHANVIEN" />
+    </Key>
+    <Property Name="ID_NHANVIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TAIKHOAN" Type="varchar" MaxLength="20" />
+    <Property Name="MATKHAU" Type="nvarchar(max)" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="200" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="15" />
+    <Property Name="CMND" Type="char" MaxLength="15" />
+    <Property Name="TINHTRANGGD" Type="nvarchar" MaxLength="100" />
+    <Property Name="QUYEN" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="ID_PHONG" />
+    </Key>
+    <Property Name="ID_PHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_LOAIPHONG" Type="int" />
+    <Property Name="SO_PHONG" Type="char" MaxLength="10" />
+    <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="100" />
+    <Property Name="SUCCHUA" Type="char" MaxLength="10" />
+    <Property Name="GIAPHONG" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CTHD_NHAPHANG_HD_NHAPHANG">
+    <End Role="HD_NHAPHANG" Type="Self.HD_NHAPHANG" Multiplicity="1" />
+    <End Role="CTHD_NHAPHANG" Type="Self.CTHD_NHAPHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HD_NHAPHANG">
+        <PropertyRef Name="ID_HDNHAPHANG" />
+      </Principal>
+      <Dependent Role="CTHD_NHAPHANG">
+        <PropertyRef Name="ID_HDNHAPHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHD_NHAPHANG_MAT_HANG">
+    <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="1" />
+    <End Role="CTHD_NHAPHANG" Type="Self.CTHD_NHAPHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAT_HANG">
+        <PropertyRef Name="ID_MATHANG" />
+      </Principal>
+      <Dependent Role="CTHD_NHAPHANG">
+        <PropertyRef Name="ID_MATHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHD_PHONG_MAT_HANG">
+    <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="1" />
+    <End Role="CTHD_PHONG" Type="Self.CTHD_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAT_HANG">
+        <PropertyRef Name="ID_MATHANG" />
+      </Principal>
+      <Dependent Role="CTHD_PHONG">
+        <PropertyRef Name="ID_MATHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHD_PHONG_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="CTHD_PHONG" Type="Self.CTHD_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="ID_PHONG" />
+      </Principal>
+      <Dependent Role="CTHD_PHONG">
+        <PropertyRef Name="ID_PHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HD_NHAPHANG_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="HD_NHAPHANG" Type="Self.HD_NHAPHANG" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID_NHANVIEN" />
+      </Principal>
+      <Dependent Role="HD_NHAPHANG">
+        <PropertyRef Name="ID_HDNHAPHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HD_PHONG_KHACH_HANG">
+    <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+    <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="ID_KHACHHANG" />
+      </Principal>
+      <Dependent Role="HD_PHONG">
+        <PropertyRef Name="ID_KHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HD_PHONG_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID_NHANVIEN" />
+      </Principal>
+      <Dependent Role="HD_PHONG">
+        <PropertyRef Name="ID_NHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HD_PHONG_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="ID_PHONG" />
+      </Principal>
+      <Dependent Role="HD_PHONG">
+        <PropertyRef Name="ID_PHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAT_HANG_NHACUNGCAP">
+    <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+    <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHACUNGCAP">
+        <PropertyRef Name="ID_NHACUNGCAP" />
+      </Principal>
+      <Dependent Role="MAT_HANG">
+        <PropertyRef Name="ID_NHACUNGCAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONG_LOAI_PHONG">
+    <End Role="LOAI_PHONG" Type="Self.LOAI_PHONG" Multiplicity="0..1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAI_PHONG">
+        <PropertyRef Name="ID_LOAIPHONG" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="ID_LOAIPHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DEMSLMATHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prDoanhthuPhong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thang" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prDoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thang" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="QL_KARAOKEModelStoreContainer">
+    <EntitySet Name="CTHD_NHAPHANG" EntityType="Self.CTHD_NHAPHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTHD_PHONG" EntityType="Self.CTHD_PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HD_NHAPHANG" EntityType="Self.HD_NHAPHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HD_PHONG" EntityType="Self.HD_PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAI_PHONG" EntityType="Self.LOAI_PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAT_HANG" EntityType="Self.MAT_HANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTHD_NHAPHANG_HD_NHAPHANG" Association="Self.FK_CTHD_NHAPHANG_HD_NHAPHANG">
+      <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+      <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHD_NHAPHANG_MAT_HANG" Association="Self.FK_CTHD_NHAPHANG_MAT_HANG">
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+      <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHD_PHONG_MAT_HANG" Association="Self.FK_CTHD_PHONG_MAT_HANG">
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+      <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHD_PHONG_PHONG" Association="Self.FK_CTHD_PHONG_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HD_NHAPHANG_NHANVIEN" Association="Self.FK_HD_NHAPHANG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HD_PHONG_KHACH_HANG" Association="Self.FK_HD_PHONG_KHACH_HANG">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HD_PHONG_NHANVIEN" Association="Self.FK_HD_PHONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HD_PHONG_PHONG" Association="Self.FK_HD_PHONG_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAT_HANG_NHACUNGCAP" Association="Self.FK_MAT_HANG_NHACUNGCAP">
+      <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_LOAI_PHONG" Association="Self.FK_PHONG_LOAI_PHONG">
+      <End Role="LOAI_PHONG" EntitySet="LOAI_PHONG" />
+      <End Role="PHONG" EntitySet="PHONG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,80 @@
+﻿<Window x:Class="QuanLyKho.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKho"
+        mc:Ignorable="d"
+        DataContext="{StaticResource PhongVM}"
+         xmlns:uc="clr-namespace:QuanLyKho.UserControlKteam"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        x:Name="window"
+        
+        Title="Phòng" Height="576.8" Width="700.8">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--các element binding từ selected item-->
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <WrapPanel Margin="0 0 0 10">
+                    <!--<TextBox IsEnabled="False" Text="{Binding IDPhong}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="ID Phòng" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>-->
+                    <ComboBox Margin="5 5 15 5" ItemsSource="{Binding listLoaiPhong}" SelectedItem="{Binding SelectedTenLP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Tên Loại Phòng" DisplayMemberPath="TEN_LOAIPHONG"/>
+                    <TextBox Text="{Binding SoPhong, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số Phòng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding Gia, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá Phòng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding TrangThai, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Trạng thái" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="70" />
+                    <TextBox Text="{Binding SucChua, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Sức Chứa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <WrapPanel>
+                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding ResetCommand}" Content="Quay Lại" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch" Width="auto" Height="auto">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding listPhong}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id Phòng" DisplayMemberBinding="{Binding ID_PHONG}"></GridViewColumn>
+                                <GridViewColumn Header="Tên Loại Phòng" DisplayMemberBinding="{Binding LOAI_PHONG.TEN_LOAIPHONG}"></GridViewColumn>
+                                <GridViewColumn Header="Số Phòng" DisplayMemberBinding="{Binding SO_PHONG}"></GridViewColumn>
+                                <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TRANGTHAI}"></GridViewColumn>
+                                <GridViewColumn Header="Sức Chứa" DisplayMemberBinding="{Binding SUCCHUA}"></GridViewColumn>
+                                <GridViewColumn Header="Giá Phòng" DisplayMemberBinding="{Binding GIAPHONG}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

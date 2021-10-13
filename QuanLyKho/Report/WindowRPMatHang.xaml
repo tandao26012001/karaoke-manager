@@ -1,0 +1,33 @@
+﻿<Window x:Class="QuanLyKho.Report.WindowRPMatHang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKho.Report"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        DataContext="{StaticResource RpMatHangVM}"
+        
+        mc:Ignorable="d"
+        Title="WindowRPMatHang" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="10" HorizontalAlignment="Center" FontSize="34"
+Text="THỐNG KÊ SỐ LƯỢNG MẶT HÀNG"/>
+        <lvc:CartesianChart Grid.Row="2">
+            <lvc:CartesianChart.Series>
+                <lvc:ColumnSeries Title="Số lượng" Values="{Binding
+ColumnSeriesMHCount}"></lvc:ColumnSeries>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Labels="{Binding AxisListNameMH}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Number of Contract"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+    </Grid>
+</Window>

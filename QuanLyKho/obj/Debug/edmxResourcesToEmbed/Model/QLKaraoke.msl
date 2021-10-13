@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_KARAOKEModelStoreContainer" CdmEntityContainer="QL_KARAOKEEntities">
+    <EntitySetMapping Name="CTHDNhapHangs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.CTHDNhapHang">
+        <MappingFragment StoreEntitySet="CTHDNhapHang">
+          <ScalarProperty Name="IDMatHang" ColumnName="IDMatHang" />
+          <ScalarProperty Name="IDCTHDNhap" ColumnName="IDCTHDNhap" />
+          <ScalarProperty Name="IDHDNhapHang" ColumnName="IDHDNhapHang" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="HanSuDung" ColumnName="HanSuDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHDPhongs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.CTHDPhong">
+        <MappingFragment StoreEntitySet="CTHDPhong">
+          <ScalarProperty Name="IDCTHDPhong" ColumnName="IDCTHDPhong" />
+          <ScalarProperty Name="IDMatHang" ColumnName="IDMatHang" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="IDHoaDonPhong" ColumnName="IDHoaDonPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonNhapHangs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.HoaDonNhapHang">
+        <MappingFragment StoreEntitySet="HoaDonNhapHang">
+          <ScalarProperty Name="IDHDNhapHang" ColumnName="IDHDNhapHang" />
+          <ScalarProperty Name="IDNhanVien" ColumnName="IDNhanVien" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TienThanhToan" ColumnName="TienThanhToan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonPhongs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.HoaDonPhong">
+        <MappingFragment StoreEntitySet="HoaDonPhong">
+          <ScalarProperty Name="IDHoaDonPhong" ColumnName="IDHoaDonPhong" />
+          <ScalarProperty Name="IDNhanVien" ColumnName="IDNhanVien" />
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="GioVao" ColumnName="GioVao" />
+          <ScalarProperty Name="GioRa" ColumnName="GioRa" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiPhongs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.LoaiPhong">
+        <MappingFragment StoreEntitySet="LoaiPhong">
+          <ScalarProperty Name="IDLoaiPhong" ColumnName="IDLoaiPhong" />
+          <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MatHangs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.MatHang">
+        <MappingFragment StoreEntitySet="MatHang">
+          <ScalarProperty Name="IDMatHang" ColumnName="IDMatHang" />
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="TenMatHang" ColumnName="TenMatHang" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="DonGiaMatHang" ColumnName="DonGiaMatHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaCungCaps">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.NhaCungCap">
+        <MappingFragment StoreEntitySet="NhaCungCap">
+          <ScalarProperty Name="IDNhaCungCap" ColumnName="IDNhaCungCap" />
+          <ScalarProperty Name="TenNhaCungCap" ColumnName="TenNhaCungCap" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="IDNhanVien" ColumnName="IDNhanVien" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="TinhTrangGiaDinh" ColumnName="TinhTrangGiaDinh" />
+          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phongs">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.Phong">
+        <MappingFragment StoreEntitySet="Phong">
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="IDLoaiPhong" ColumnName="IDLoaiPhong" />
+          <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="SucChua" ColumnName="SucChua" />
+          <ScalarProperty Name="GiaPhong" ColumnName="GiaPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QL_KARAOKEModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_MATHANG" FunctionName="QL_KARAOKEModel.Store.SP_MATHANG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_KARAOKEModel.SP_MATHANG_Result">
+          <ScalarProperty Name="TenMatHang" ColumnName="TenMatHang" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

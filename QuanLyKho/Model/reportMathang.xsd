@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="reportMathang" targetNamespace="http://tempuri.org/reportMathang.xsd" xmlns:mstns="http://tempuri.org/reportMathang.xsd" xmlns="http://tempuri.org/reportMathang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QL_KARAOKEConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QL_KARAOKEConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLyKho.Properties.Settings.GlobalReference.Default.QL_KARAOKEConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SOLUONGMATHANGTableAdapter" GeneratorDataComponentClassName="SOLUONGMATHANGTableAdapter" Name="SOLUONGMATHANG" UserDataComponentName="SOLUONGMATHANGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QL_KARAOKEConnectionString (Settings)" DbObjectName="QL_KARAOKE.dbo.SOLUONGMATHANG" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TenMatHang, SOLUONG FROM dbo.SOLUONGMATHANG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TenMatHang" DataSetColumn="TenMatHang" />
+              <Mapping SourceColumn="SOLUONG" DataSetColumn="SOLUONG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="reportMathang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="reportMathang" msprop:Generator_UserDSName="reportMathang">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SOLUONGMATHANG" msprop:Generator_TableClassName="SOLUONGMATHANGDataTable" msprop:Generator_TableVarName="tableSOLUONGMATHANG" msprop:Generator_TablePropName="SOLUONGMATHANG" msprop:Generator_RowDeletingName="SOLUONGMATHANGRowDeleting" msprop:Generator_RowChangingName="SOLUONGMATHANGRowChanging" msprop:Generator_RowEvHandlerName="SOLUONGMATHANGRowChangeEventHandler" msprop:Generator_RowDeletedName="SOLUONGMATHANGRowDeleted" msprop:Generator_UserTableName="SOLUONGMATHANG" msprop:Generator_RowChangedName="SOLUONGMATHANGRowChanged" msprop:Generator_RowEvArgName="SOLUONGMATHANGRowChangeEvent" msprop:Generator_RowClassName="SOLUONGMATHANGRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TenMatHang" msprop:Generator_ColumnVarNameInTable="columnTenMatHang" msprop:Generator_ColumnPropNameInRow="TenMatHang" msprop:Generator_ColumnPropNameInTable="TenMatHangColumn" msprop:Generator_UserColumnName="TenMatHang" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOLUONG" msprop:Generator_ColumnVarNameInTable="columnSOLUONG" msprop:Generator_ColumnPropNameInRow="SOLUONG" msprop:Generator_ColumnPropNameInTable="SOLUONGColumn" msprop:Generator_UserColumnName="SOLUONG" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

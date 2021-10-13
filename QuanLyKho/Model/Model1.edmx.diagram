@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1baa0fa3a59479790679468febec837" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="QL_KARAOKEModel.sysdiagram" Width="1.5" PointX="7.875" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.CTHD_NHAPHANG" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.CTHD_PHONG" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.HD_PHONG" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.KHACH_HANG" Width="1.5" PointX="7.75" PointY="4.5" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.LOAI_PHONG" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.MAT_HANG" Width="1.5" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.NHACUNGCAP" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.PHONG" Width="1.5" PointX="3" PointY="6" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_CTHD_NHAPHANG_MAT_HANG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_CTHD_PHONG_MAT_HANG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_CTHD_PHONG_PHONG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_HD_PHONG_KHACH_HANG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_HD_PHONG_PHONG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_PHONG_LOAI_PHONG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_MAT_HANG_NHACUNGCAP" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.HD_NHAPHANG" Width="1.5" PointX="4" PointY="9.875" />
+        <EntityTypeShape EntityType="QL_KARAOKEModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="8.375" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_CTHD_NHAPHANG_HD_NHAPHANG" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_HD_NHAPHANG_NHANVIEN" />
+        <AssociationConnector Association="QL_KARAOKEModel.FK_HD_PHONG_NHANVIEN" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

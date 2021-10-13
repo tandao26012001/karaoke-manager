@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QL_KARAOKEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTHD_NHAPHANG">
+          <Key>
+            <PropertyRef Name="ID_MATHANG" />
+            <PropertyRef Name="ID_HDNHAPHANG" />
+          </Key>
+          <Property Name="ID_MATHANG" Type="int" Nullable="false" />
+          <Property Name="ID_HDNHAPHANG" Type="int" Nullable="false" />
+          <Property Name="SOLUONG" Type="int" />
+          <Property Name="DONGIA" Type="int" />
+          <Property Name="HANSUDUNG" Type="date" />
+          <Property Name="NGAYNHAP" Type="date" />
+        </EntityType>
+        <EntityType Name="CTHD_PHONG">
+          <Key>
+            <PropertyRef Name="ID_PHONG" />
+            <PropertyRef Name="ID_MATHANG" />
+          </Key>
+          <Property Name="ID_PHONG" Type="int" Nullable="false" />
+          <Property Name="ID_MATHANG" Type="int" Nullable="false" />
+          <Property Name="ID_HDPHONG" Type="int" />
+          <Property Name="SOLUONG" Type="int" />
+          <Property Name="DONGIA" Type="int" />
+        </EntityType>
+        <EntityType Name="HD_NHAPHANG">
+          <Key>
+            <PropertyRef Name="ID_HDNHAPHANG" />
+          </Key>
+          <Property Name="ID_HDNHAPHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_NHANVIEN" Type="int" />
+        </EntityType>
+        <EntityType Name="HD_PHONG">
+          <Key>
+            <PropertyRef Name="ID_HDPHONG" />
+          </Key>
+          <Property Name="ID_HDPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_NHANVIEN" Type="int" />
+          <Property Name="ID_PHONG" Type="int" />
+          <Property Name="ID_KHACHHANG" Type="int" />
+          <Property Name="GIOVAO" Type="int" />
+          <Property Name="GIORA" Type="int" />
+          <Property Name="NGAYTAO" Type="date" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="ID_KHACHHANG" />
+          </Key>
+          <Property Name="ID_KHACHHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_KHACHHANG" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LOAI_PHONG">
+          <Key>
+            <PropertyRef Name="ID_LOAIPHONG" />
+          </Key>
+          <Property Name="ID_LOAIPHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_LOAIPHONG" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MAT_HANG">
+          <Key>
+            <PropertyRef Name="ID_MATHANG" />
+          </Key>
+          <Property Name="ID_MATHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_NHACUNGCAP" Type="int" />
+          <Property Name="TEN_MATHANG" Type="nvarchar" MaxLength="100" />
+          <Property Name="DONVITINH" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="ID_NHACUNGCAP" />
+          </Key>
+          <Property Name="ID_NHACUNGCAP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NHACUNGCAP" Type="nvarchar" MaxLength="100" />
+          <Property Name="DIENTHOAI" Type="char" MaxLength="15" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="200" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="ID_NHANVIEN" />
+          </Key>
+          <Property Name="ID_NHANVIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TAIKHOAN" Type="varchar" MaxLength="20" />
+          <Property Name="MATKHAU" Type="nvarchar(max)" />
+          <Property Name="HOTEN" Type="nvarchar" MaxLength="100" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="200" />
+          <Property Name="GIOITINH" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="char" MaxLength="15" />
+          <Property Name="CMND" Type="char" MaxLength="15" />
+          <Property Name="TINHTRANGGD" Type="nvarchar" MaxLength="100" />
+          <Property Name="QUYEN" Type="char" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="ID_PHONG" />
+          </Key>
+          <Property Name="ID_PHONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_LOAIPHONG" Type="int" />
+          <Property Name="SO_PHONG" Type="char" MaxLength="10" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="100" />
+          <Property Name="SUCCHUA" Type="char" MaxLength="10" />
+          <Property Name="GIAPHONG" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_CTHD_NHAPHANG_HD_NHAPHANG">
+          <End Role="HD_NHAPHANG" Type="Self.HD_NHAPHANG" Multiplicity="1" />
+          <End Role="CTHD_NHAPHANG" Type="Self.CTHD_NHAPHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Principal>
+            <Dependent Role="CTHD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_NHAPHANG_MAT_HANG">
+          <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="1" />
+          <End Role="CTHD_NHAPHANG" Type="Self.CTHD_NHAPHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAT_HANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Principal>
+            <Dependent Role="CTHD_NHAPHANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_PHONG_MAT_HANG">
+          <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="1" />
+          <End Role="CTHD_PHONG" Type="Self.CTHD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAT_HANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Principal>
+            <Dependent Role="CTHD_PHONG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_PHONG_PHONG">
+          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+          <End Role="CTHD_PHONG" Type="Self.CTHD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Principal>
+            <Dependent Role="CTHD_PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_NHAPHANG_NHANVIEN">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="HD_NHAPHANG" Type="Self.HD_NHAPHANG" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Principal>
+            <Dependent Role="HD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_KHACH_HANG">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="ID_KHACHHANG" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_KHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_NHANVIEN">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_PHONG">
+          <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+          <End Role="HD_PHONG" Type="Self.HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAT_HANG_NHACUNGCAP">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+          <End Role="MAT_HANG" Type="Self.MAT_HANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="ID_NHACUNGCAP" />
+            </Principal>
+            <Dependent Role="MAT_HANG">
+              <PropertyRef Name="ID_NHACUNGCAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONG_LOAI_PHONG">
+          <End Role="LOAI_PHONG" Type="Self.LOAI_PHONG" Multiplicity="0..1" />
+          <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_PHONG">
+              <PropertyRef Name="ID_LOAIPHONG" />
+            </Principal>
+            <Dependent Role="PHONG">
+              <PropertyRef Name="ID_LOAIPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DEMSLMATHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prDoanhthuPhong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prDoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="QL_KARAOKEModelStoreContainer">
+          <EntitySet Name="CTHD_NHAPHANG" EntityType="Self.CTHD_NHAPHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTHD_PHONG" EntityType="Self.CTHD_PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HD_NHAPHANG" EntityType="Self.HD_NHAPHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HD_PHONG" EntityType="Self.HD_PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAI_PHONG" EntityType="Self.LOAI_PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAT_HANG" EntityType="Self.MAT_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CTHD_NHAPHANG_HD_NHAPHANG" Association="Self.FK_CTHD_NHAPHANG_HD_NHAPHANG">
+            <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+            <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_NHAPHANG_MAT_HANG" Association="Self.FK_CTHD_NHAPHANG_MAT_HANG">
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+            <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_PHONG_MAT_HANG" Association="Self.FK_CTHD_PHONG_MAT_HANG">
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+            <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_PHONG_PHONG" Association="Self.FK_CTHD_PHONG_PHONG">
+            <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_NHAPHANG_NHANVIEN" Association="Self.FK_HD_NHAPHANG_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_KHACH_HANG" Association="Self.FK_HD_PHONG_KHACH_HANG">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_NHANVIEN" Association="Self.FK_HD_PHONG_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_PHONG" Association="Self.FK_HD_PHONG_PHONG">
+            <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAT_HANG_NHACUNGCAP" Association="Self.FK_MAT_HANG_NHACUNGCAP">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONG_LOAI_PHONG" Association="Self.FK_PHONG_LOAI_PHONG">
+            <End Role="LOAI_PHONG" EntitySet="LOAI_PHONG" />
+            <End Role="PHONG" EntitySet="PHONG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_KARAOKEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="QL_KARAOKEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <FunctionImport Name="DEMSLMATHANG" ReturnType="Collection(QL_KARAOKEModel.DEMSLMATHANG_Result)" />
+          <FunctionImport Name="prDoanThu" ReturnType="Collection(QL_KARAOKEModel.prDoanThu_Result)">
+          <Parameter Name="thang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="CTHD_NHAPHANG" EntityType="QL_KARAOKEModel.CTHD_NHAPHANG" />
+          <EntitySet Name="CTHD_PHONG" EntityType="QL_KARAOKEModel.CTHD_PHONG" />
+          <EntitySet Name="HD_PHONG" EntityType="QL_KARAOKEModel.HD_PHONG" />
+          <EntitySet Name="KHACH_HANG" EntityType="QL_KARAOKEModel.KHACH_HANG" />
+          <EntitySet Name="LOAI_PHONG" EntityType="QL_KARAOKEModel.LOAI_PHONG" />
+          <EntitySet Name="MAT_HANG" EntityType="QL_KARAOKEModel.MAT_HANG" />
+          <EntitySet Name="NHACUNGCAPs" EntityType="QL_KARAOKEModel.NHACUNGCAP" />
+          <EntitySet Name="PHONGs" EntityType="QL_KARAOKEModel.PHONG" />
+          <AssociationSet Name="FK_CTHD_NHAPHANG_MAT_HANG" Association="QL_KARAOKEModel.FK_CTHD_NHAPHANG_MAT_HANG">
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+            <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_PHONG_MAT_HANG" Association="QL_KARAOKEModel.FK_CTHD_PHONG_MAT_HANG">
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+            <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_PHONG_PHONG" Association="QL_KARAOKEModel.FK_CTHD_PHONG_PHONG">
+            <End Role="PHONG" EntitySet="PHONGs" />
+            <End Role="CTHD_PHONG" EntitySet="CTHD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_KHACH_HANG" Association="QL_KARAOKEModel.FK_HD_PHONG_KHACH_HANG">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_PHONG" Association="QL_KARAOKEModel.FK_HD_PHONG_PHONG">
+            <End Role="PHONG" EntitySet="PHONGs" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONG_LOAI_PHONG" Association="QL_KARAOKEModel.FK_PHONG_LOAI_PHONG">
+            <End Role="LOAI_PHONG" EntitySet="LOAI_PHONG" />
+            <End Role="PHONG" EntitySet="PHONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAT_HANG_NHACUNGCAP" Association="QL_KARAOKEModel.FK_MAT_HANG_NHACUNGCAP">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+          </AssociationSet>
+          <FunctionImport Name="prDoanhthuPhong" ReturnType="Collection(QL_KARAOKEModel.prDoanhthuPhong_Result)">
+          <Parameter Name="thang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="HD_NHAPHANG" EntityType="QL_KARAOKEModel.HD_NHAPHANG" />
+          <EntitySet Name="NHANVIENs" EntityType="QL_KARAOKEModel.NHANVIEN" />
+          <AssociationSet Name="FK_CTHD_NHAPHANG_HD_NHAPHANG" Association="QL_KARAOKEModel.FK_CTHD_NHAPHANG_HD_NHAPHANG">
+            <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+            <End Role="CTHD_NHAPHANG" EntitySet="CTHD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_NHAPHANG_NHANVIEN" Association="QL_KARAOKEModel.FK_HD_NHAPHANG_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="HD_NHAPHANG" EntitySet="HD_NHAPHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HD_PHONG_NHANVIEN" Association="QL_KARAOKEModel.FK_HD_PHONG_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="HD_PHONG" EntitySet="HD_PHONG" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="DEMSLMATHANG_Result">
+          <Property Type="String" Name="TEN_MATHANG" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="SOLUONG" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="prDoanThu_Result">
+          <Property Type="Int32" Name="NGAY" Nullable="true" />
+          <Property Type="Int32" Name="DOANHTHU" Nullable="true" />
+          <Property Type="String" Name="TEN_MATHANG" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="CTHD_NHAPHANG">
+          <Key>
+            <PropertyRef Name="ID_MATHANG" />
+            <PropertyRef Name="ID_HDNHAPHANG" />
+          </Key>
+          <Property Name="ID_MATHANG" Type="Int32" Nullable="false" />
+          <Property Name="ID_HDNHAPHANG" Type="Int32" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Int32" />
+          <Property Name="HANSUDUNG" Type="DateTime" Precision="0" />
+          <Property Name="NGAYNHAP" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MAT_HANG" Relationship="QL_KARAOKEModel.FK_CTHD_NHAPHANG_MAT_HANG" FromRole="CTHD_NHAPHANG" ToRole="MAT_HANG" />
+          <NavigationProperty Name="HD_NHAPHANG" Relationship="QL_KARAOKEModel.FK_CTHD_NHAPHANG_HD_NHAPHANG" FromRole="CTHD_NHAPHANG" ToRole="HD_NHAPHANG" />
+        </EntityType>
+        <EntityType Name="CTHD_PHONG">
+          <Key>
+            <PropertyRef Name="ID_PHONG" />
+            <PropertyRef Name="ID_MATHANG" />
+          </Key>
+          <Property Name="ID_PHONG" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATHANG" Type="Int32" Nullable="false" />
+          <Property Name="ID_HDPHONG" Type="Int32" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Int32" />
+          <NavigationProperty Name="MAT_HANG" Relationship="QL_KARAOKEModel.FK_CTHD_PHONG_MAT_HANG" FromRole="CTHD_PHONG" ToRole="MAT_HANG" />
+          <NavigationProperty Name="PHONG" Relationship="QL_KARAOKEModel.FK_CTHD_PHONG_PHONG" FromRole="CTHD_PHONG" ToRole="PHONG" />
+        </EntityType>
+        <EntityType Name="HD_PHONG">
+          <Key>
+            <PropertyRef Name="ID_HDPHONG" />
+          </Key>
+          <Property Name="ID_HDPHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_NHANVIEN" Type="Int32" />
+          <Property Name="ID_PHONG" Type="Int32" />
+          <Property Name="ID_KHACHHANG" Type="Int32" />
+          <Property Name="GIOVAO" Type="Int32" />
+          <Property Name="GIORA" Type="Int32" />
+          <Property Name="NGAYTAO" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="QL_KARAOKEModel.FK_HD_PHONG_KHACH_HANG" FromRole="HD_PHONG" ToRole="KHACH_HANG" />
+          <NavigationProperty Name="PHONG" Relationship="QL_KARAOKEModel.FK_HD_PHONG_PHONG" FromRole="HD_PHONG" ToRole="PHONG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QL_KARAOKEModel.FK_HD_PHONG_NHANVIEN" FromRole="HD_PHONG" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="ID_KHACHHANG" />
+          </Key>
+          <Property Name="ID_KHACHHANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_KHACHHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HD_PHONG" Relationship="QL_KARAOKEModel.FK_HD_PHONG_KHACH_HANG" FromRole="KHACH_HANG" ToRole="HD_PHONG" />
+        </EntityType>
+        <EntityType Name="LOAI_PHONG">
+          <Key>
+            <PropertyRef Name="ID_LOAIPHONG" />
+          </Key>
+          <Property Name="ID_LOAIPHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_LOAIPHONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PHONGs" Relationship="QL_KARAOKEModel.FK_PHONG_LOAI_PHONG" FromRole="LOAI_PHONG" ToRole="PHONG" />
+        </EntityType>
+        <EntityType Name="MAT_HANG">
+          <Key>
+            <PropertyRef Name="ID_MATHANG" />
+          </Key>
+          <Property Name="ID_MATHANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_NHACUNGCAP" Type="Int32" />
+          <Property Name="TEN_MATHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DONVITINH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CTHD_NHAPHANG" Relationship="QL_KARAOKEModel.FK_CTHD_NHAPHANG_MAT_HANG" FromRole="MAT_HANG" ToRole="CTHD_NHAPHANG" />
+          <NavigationProperty Name="CTHD_PHONG" Relationship="QL_KARAOKEModel.FK_CTHD_PHONG_MAT_HANG" FromRole="MAT_HANG" ToRole="CTHD_PHONG" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="QL_KARAOKEModel.FK_MAT_HANG_NHACUNGCAP" FromRole="MAT_HANG" ToRole="NHACUNGCAP" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="ID_NHACUNGCAP" />
+          </Key>
+          <Property Name="ID_NHACUNGCAP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NHACUNGCAP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAT_HANG" Relationship="QL_KARAOKEModel.FK_MAT_HANG_NHACUNGCAP" FromRole="NHACUNGCAP" ToRole="MAT_HANG" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="ID_PHONG" />
+          </Key>
+          <Property Name="ID_PHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_LOAIPHONG" Type="Int32" />
+          <Property Name="SO_PHONG" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SUCCHUA" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="GIAPHONG" Type="Int32" />
+          <NavigationProperty Name="CTHD_PHONG" Relationship="QL_KARAOKEModel.FK_CTHD_PHONG_PHONG" FromRole="PHONG" ToRole="CTHD_PHONG" />
+          <NavigationProperty Name="HD_PHONG" Relationship="QL_KARAOKEModel.FK_HD_PHONG_PHONG" FromRole="PHONG" ToRole="HD_PHONG" />
+          <NavigationProperty Name="LOAI_PHONG" Relationship="QL_KARAOKEModel.FK_PHONG_LOAI_PHONG" FromRole="PHONG" ToRole="LOAI_PHONG" />
+        </EntityType>
+        <Association Name="FK_CTHD_NHAPHANG_MAT_HANG">
+          <End Type="QL_KARAOKEModel.MAT_HANG" Role="MAT_HANG" Multiplicity="1" />
+          <End Type="QL_KARAOKEModel.CTHD_NHAPHANG" Role="CTHD_NHAPHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAT_HANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Principal>
+            <Dependent Role="CTHD_NHAPHANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_PHONG_MAT_HANG">
+          <End Type="QL_KARAOKEModel.MAT_HANG" Role="MAT_HANG" Multiplicity="1" />
+          <End Type="QL_KARAOKEModel.CTHD_PHONG" Role="CTHD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAT_HANG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Principal>
+            <Dependent Role="CTHD_PHONG">
+              <PropertyRef Name="ID_MATHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_PHONG_PHONG">
+          <End Type="QL_KARAOKEModel.PHONG" Role="PHONG" Multiplicity="1" />
+          <End Type="QL_KARAOKEModel.CTHD_PHONG" Role="CTHD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Principal>
+            <Dependent Role="CTHD_PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_KHACH_HANG">
+          <End Type="QL_KARAOKEModel.KHACH_HANG" Role="KHACH_HANG" Multiplicity="0..1" />
+          <End Type="QL_KARAOKEModel.HD_PHONG" Role="HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="ID_KHACHHANG" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_KHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_PHONG">
+          <End Type="QL_KARAOKEModel.PHONG" Role="PHONG" Multiplicity="0..1" />
+          <End Type="QL_KARAOKEModel.HD_PHONG" Role="HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_PHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONG_LOAI_PHONG">
+          <End Type="QL_KARAOKEModel.LOAI_PHONG" Role="LOAI_PHONG" Multiplicity="0..1" />
+          <End Type="QL_KARAOKEModel.PHONG" Role="PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_PHONG">
+              <PropertyRef Name="ID_LOAIPHONG" />
+            </Principal>
+            <Dependent Role="PHONG">
+              <PropertyRef Name="ID_LOAIPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAT_HANG_NHACUNGCAP">
+          <End Type="QL_KARAOKEModel.NHACUNGCAP" Role="NHACUNGCAP" Multiplicity="0..1" />
+          <End Type="QL_KARAOKEModel.MAT_HANG" Role="MAT_HANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="ID_NHACUNGCAP" />
+            </Principal>
+            <Dependent Role="MAT_HANG">
+              <PropertyRef Name="ID_NHACUNGCAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="prDoanhthuPhong_Result">
+          <Property Type="Int32" Name="THANG" Nullable="true" />
+          <Property Type="Int32" Name="DOANHTHU" Nullable="true" />
+          <Property Type="Int32" Name="ID_PHONG" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="HD_NHAPHANG">
+          <Key>
+            <PropertyRef Name="ID_HDNHAPHANG" />
+          </Key>
+          <Property Name="ID_HDNHAPHANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_NHANVIEN" Type="Int32" />
+          <NavigationProperty Name="CTHD_NHAPHANG" Relationship="QL_KARAOKEModel.FK_CTHD_NHAPHANG_HD_NHAPHANG" FromRole="HD_NHAPHANG" ToRole="CTHD_NHAPHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QL_KARAOKEModel.FK_HD_NHAPHANG_NHANVIEN" FromRole="HD_NHAPHANG" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="ID_NHANVIEN" />
+          </Key>
+          <Property Name="ID_NHANVIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TAIKHOAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MATKHAU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HOTEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GIOITINH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="TINHTRANGGD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QUYEN" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="HD_NHAPHANG" Relationship="QL_KARAOKEModel.FK_HD_NHAPHANG_NHANVIEN" FromRole="NHANVIEN" ToRole="HD_NHAPHANG" />
+          <NavigationProperty Name="HD_PHONG" Relationship="QL_KARAOKEModel.FK_HD_PHONG_NHANVIEN" FromRole="NHANVIEN" ToRole="HD_PHONG" />
+        </EntityType>
+        <Association Name="FK_CTHD_NHAPHANG_HD_NHAPHANG">
+          <End Type="QL_KARAOKEModel.HD_NHAPHANG" Role="HD_NHAPHANG" Multiplicity="1" />
+          <End Type="QL_KARAOKEModel.CTHD_NHAPHANG" Role="CTHD_NHAPHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Principal>
+            <Dependent Role="CTHD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_NHAPHANG_NHANVIEN">
+          <End Type="QL_KARAOKEModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+          <End Type="QL_KARAOKEModel.HD_NHAPHANG" Role="HD_NHAPHANG" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Principal>
+            <Dependent Role="HD_NHAPHANG">
+              <PropertyRef Name="ID_HDNHAPHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HD_PHONG_NHANVIEN">
+          <End Type="QL_KARAOKEModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+          <End Type="QL_KARAOKEModel.HD_PHONG" Role="HD_PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Principal>
+            <Dependent Role="HD_PHONG">
+              <PropertyRef Name="ID_NHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_KARAOKEModelStoreContainer" CdmEntityContainer="QL_KARAOKEEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DEMSLMATHANG" FunctionName="QL_KARAOKEModel.Store.DEMSLMATHANG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_KARAOKEModel.DEMSLMATHANG_Result">
+                <ScalarProperty Name="TEN_MATHANG" ColumnName="TEN_MATHANG" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prDoanThu" FunctionName="QL_KARAOKEModel.Store.prDoanThu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_KARAOKEModel.prDoanThu_Result">
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="DOANHTHU" ColumnName="DOANHTHU" />
+                <ScalarProperty Name="TEN_MATHANG" ColumnName="TEN_MATHANG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CTHD_NHAPHANG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.CTHD_NHAPHANG">
+              <MappingFragment StoreEntitySet="CTHD_NHAPHANG">
+                <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+                <ScalarProperty Name="HANSUDUNG" ColumnName="HANSUDUNG" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="ID_HDNHAPHANG" ColumnName="ID_HDNHAPHANG" />
+                <ScalarProperty Name="ID_MATHANG" ColumnName="ID_MATHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTHD_PHONG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.CTHD_PHONG">
+              <MappingFragment StoreEntitySet="CTHD_PHONG">
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="ID_HDPHONG" ColumnName="ID_HDPHONG" />
+                <ScalarProperty Name="ID_MATHANG" ColumnName="ID_MATHANG" />
+                <ScalarProperty Name="ID_PHONG" ColumnName="ID_PHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HD_PHONG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.HD_PHONG">
+              <MappingFragment StoreEntitySet="HD_PHONG">
+                <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
+                <ScalarProperty Name="GIORA" ColumnName="GIORA" />
+                <ScalarProperty Name="GIOVAO" ColumnName="GIOVAO" />
+                <ScalarProperty Name="ID_KHACHHANG" ColumnName="ID_KHACHHANG" />
+                <ScalarProperty Name="ID_PHONG" ColumnName="ID_PHONG" />
+                <ScalarProperty Name="ID_NHANVIEN" ColumnName="ID_NHANVIEN" />
+                <ScalarProperty Name="ID_HDPHONG" ColumnName="ID_HDPHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACH_HANG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.KHACH_HANG">
+              <MappingFragment StoreEntitySet="KHACH_HANG">
+                <ScalarProperty Name="TEN_KHACHHANG" ColumnName="TEN_KHACHHANG" />
+                <ScalarProperty Name="ID_KHACHHANG" ColumnName="ID_KHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAI_PHONG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.LOAI_PHONG">
+              <MappingFragment StoreEntitySet="LOAI_PHONG">
+                <ScalarProperty Name="TEN_LOAIPHONG" ColumnName="TEN_LOAIPHONG" />
+                <ScalarProperty Name="ID_LOAIPHONG" ColumnName="ID_LOAIPHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAT_HANG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.MAT_HANG">
+              <MappingFragment StoreEntitySet="MAT_HANG">
+                <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+                <ScalarProperty Name="TEN_MATHANG" ColumnName="TEN_MATHANG" />
+                <ScalarProperty Name="ID_NHACUNGCAP" ColumnName="ID_NHACUNGCAP" />
+                <ScalarProperty Name="ID_MATHANG" ColumnName="ID_MATHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHACUNGCAPs">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.NHACUNGCAP">
+              <MappingFragment StoreEntitySet="NHACUNGCAP">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="TEN_NHACUNGCAP" ColumnName="TEN_NHACUNGCAP" />
+                <ScalarProperty Name="ID_NHACUNGCAP" ColumnName="ID_NHACUNGCAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGs">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.PHONG">
+              <MappingFragment StoreEntitySet="PHONG">
+                <ScalarProperty Name="GIAPHONG" ColumnName="GIAPHONG" />
+                <ScalarProperty Name="SUCCHUA" ColumnName="SUCCHUA" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="SO_PHONG" ColumnName="SO_PHONG" />
+                <ScalarProperty Name="ID_LOAIPHONG" ColumnName="ID_LOAIPHONG" />
+                <ScalarProperty Name="ID_PHONG" ColumnName="ID_PHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prDoanhthuPhong" FunctionName="QL_KARAOKEModel.Store.prDoanhthuPhong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_KARAOKEModel.prDoanhthuPhong_Result">
+                <ScalarProperty Name="THANG" ColumnName="THANG" />
+                <ScalarProperty Name="DOANHTHU" ColumnName="DOANHTHU" />
+                <ScalarProperty Name="ID_PHONG" ColumnName="ID_PHONG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HD_NHAPHANG">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.HD_NHAPHANG">
+              <MappingFragment StoreEntitySet="HD_NHAPHANG">
+                <ScalarProperty Name="ID_NHANVIEN" ColumnName="ID_NHANVIEN" />
+                <ScalarProperty Name="ID_HDNHAPHANG" ColumnName="ID_HDNHAPHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="QL_KARAOKEModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+                <ScalarProperty Name="TINHTRANGGD" ColumnName="TINHTRANGGD" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+                <ScalarProperty Name="ID_NHANVIEN" ColumnName="ID_NHANVIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
